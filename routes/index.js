@@ -5,7 +5,7 @@ var router = express.Router();
 
 /* GET home page. */
 router.get('/', async (req, res, next) => {
-  const query = User.where({ username: 'mgmg' });
+  const query = User.where({ username: 'mg-mg' });
   const user = await query.findOne();
   const posts = await Post
     .find()
@@ -15,11 +15,10 @@ router.get('/', async (req, res, next) => {
   res.render('index', { title: "Home", user: user, posts: posts });
 });
 
-router.get('/posts/:id', async (req, res, next) => {
-  const query = User.where({ username: 'mgmg' });
-  const posts = await query.find('post');
-
-  res.render('post', { title: "Index", post: post });
+router.get('/p/:username', async (req, res, next) => {
+  let user = await User.findOne({ username: req.params.username });
+  let posts = await Post.find({ author: '65a29b26e1a9dbb055794292' });
+  res.render('user', { title: `User - ${user['username']}`, posts: posts, user: user });
 });
 
 module.exports = router;

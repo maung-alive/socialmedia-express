@@ -26,7 +26,7 @@ function stringify(obj) {
 router.get('/', async (req, res, next) => {
   const post = Post({
     content: "Hello, world!",
-    author: "65a2a71dd1595edc606a375d",
+    author: "65a29b26e1a9dbb055794292",
     images: [],
     createdAt: new Date(),
   })
@@ -34,7 +34,7 @@ router.get('/', async (req, res, next) => {
   while(i>0){
     const image = Image({
       url: "https://picsum.photos/1200",
-      uploader: "65a2a71dd1595edc606a375d",
+      uploader: "65a29b26e1a9dbb055794292",
       createdAt: new Date()
     })
     image.save();
