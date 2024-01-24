@@ -7,9 +7,19 @@ var router = express.Router();
 router.get('/', async (req, res, next) => {
   const query = User.where({ username: 'mgmg' });
   const user = await query.findOne();
-  const posts = await Post.find();
+  const posts = await Post
+    .find()
+    .populate('images author')
+    .exec();
 
-  res.render('index', { title: "Index", user: user, posts: posts });
+  res.render('index', { title: "Home", user: user, posts: posts });
+});
+
+router.get('/posts/:id', async (req, res, next) => {
+  const query = User.where({ username: 'mgmg' });
+  const posts = await query.find('post');
+
+  res.render('post', { title: "Index", post: post });
 });
 
 module.exports = router;

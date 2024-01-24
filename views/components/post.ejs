@@ -6,25 +6,25 @@
             class="w-10 h-10 rounded-full object-cover"
         >
         <div class="flex flex-col items-center">
-            <p class="text-base md:text-lg lg:text-xl font-medium"><%= user.fullname %></p>
+            <p class="text-base md:text-lg lg:text-xl font-medium"><%= post.author.fullname %></p>
         </div>
     </div>
 
     <div class="text-sm md:text-base leading-8 p-2">
-        <p class="text-xs md:text-sm font-medium"><%= new Date().toDateString() %></p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis dicta nihil voluptas repellendus dignissimos harum provident, qui earum! Delectus tenetur iste eligendi obcaecati incidunt quisquam minus aspernatur nihil ratione recusandae! <span class="font-medium hover:text-blue-600">[READ MORE]</span>
+        <p class="text-xs md:text-sm font-medium"><%= post.createdAt.toDateString() %></p>
+        <%= post.content %>
     </div>
 
-    <% if (images.length > 0) { %>
-    <div class="relative px-4 pt-4 grid grid-flow-col items-center justify-start gap-2 w-full overflow-hidden h-[400px] md:h-[450px] lg:h-[500px]" id="image-container-<%= id %>">
-        <% images.slice(0, 4).forEach(function(image) { %>
+    <% if (post.images.length > 0) { %>
+    <div class="relative px-4 pt-4 grid grid-flow-col items-center justify-start gap-2 w-full overflow-hidden h-[400px] md:h-[450px] lg:h-[500px]">
+        <% post.images.slice(0, 4).map(function(image) { %>
             <img
                 src="https://picsum.photos/1200"
                 alt="Random"
-                class="w-auto h-full object-cover rounded-md hover:grayscale-[100] transition duration-100"
+                class="bg-gray-900/50 w-auto h-full object-cover rounded-md hover:grayscale-[100] transition duration-100"
             >
         <% }) %>
-        <span class="absolute top-5 right-5 px-2 py-1 rounded text-white font-medium bg-gray-900/15"><%= images.length %> photos</span>
+        <span class="absolute top-5 right-5 px-2 py-1 rounded text-white font-medium bg-gray-900/15"><%= post.images.length %> photos</span>
     </div>
     <% } %>
 
