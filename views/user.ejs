@@ -14,10 +14,24 @@
     </div>
 </div>
 
+<div class="flex justify-start gap-x-4">
+    <a href="?posts" id="navigator-posts" type="button" class="px-2 w-full md:w-24 lg:w-32 duration-150 hover:bg-gray-400/50 py-2 font-medium text-xl rounded-lg text-cyan-600">Posts</a>
+    <a href="?events" id="navigator-events" type="button" class="px-2 w-full md:w-24 lg:w-32 duration-150 hover:bg-gray-400/50 py-2 font-medium text-xl rounded-lg text-cyan-600">Events</a>
+</div>
 <section class="my-2">
     <% posts.forEach(function(post){ %>
       <%- include('components/post', {post: post}); %>
     <% }); %>
 </section>
+
+<script>
+    let tab = document.location.href.split('?')[1];
+    if(tab == 'posts'){
+        $('#navigator-posts').addClass('border-b-2 border-cyan-600 active:border-neutral-50/0')
+    }else if(tab == 'events'){
+        $('#navigator-events').addClass('border-b-2 border-cyan-600 active:border-neutral-50/0')
+    };
+
+</script>
 
 <%- include('components/footer') -%>

@@ -7,6 +7,9 @@ const PostSchema = new Schema({
     images: [
         { type: Schema.ObjectId, ref: 'Image' },
     ],
+    comments: [
+        { type: Schema.ObjectId, ref: 'Comment' }
+    ],
     createdAt: {
         type: Date,
         required: true,
