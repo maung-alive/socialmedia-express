@@ -2,7 +2,7 @@
 
   <div class="bg-slate-200 px-3 py-4 w-full rounded-lg mt-10">
     <p class="text-lg md:text-xl lg:text-2xl font-medium">Welcome <span class="text-cyan-800"><%= "H" %></span>!</p>
-    <button class="w-full block text-left text-base md:text-lg lg:text-xl font-medium text-gray-800 bg-slate-50 px-3 py-3 lg:py-4 mt-5 rounded-lg hover:bg-slate-300">Create a post</button>
+    <button class="w-full block text-left text-base md:text-lg lg:text-xl font-medium text-gray-800 bg-slate-50 px-3 py-3 lg:py-4 mt-5 rounded-lg hover:bg-slate-300" onclick="postCreator()">Create a post</button>
     <div class="flex gap-x-5 w-full items-center">
       <p class="w-full text-base md:text-lg lg:text-xl font-medium text-gray-800 bg-slate-50 px-3 py-2 mt-2 md:mt-3 lg:mt-5 rounded-lg duration-150 hover:bg-gray-300 active:scale-95 text-center">Image</p>
       <p class="w-full text-base md:text-lg lg:text-xl font-medium text-gray-800 bg-slate-50 px-3 py-2 mt-2 md:mt-3 lg:mt-5 rounded-lg duration-150 hover:bg-gray-300 active:scale-95 text-center">Video</p>
@@ -34,24 +34,6 @@
     </span>
     </form>
 
-  </div>
-
-  <div class="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] max-w-[96%] max-h-[60vh] bg-slate-100 shadow-xl rounded-xl overflow-hidden border-b border-cyan-500" id="post-form-div">
-    <textarea
-      name="post-content"
-      id="post-comment"
-      placeholder="What's on your mind?"
-      class="w-full min-h-[calc(100%-90px)] px-2 py-1 placeholder:text-2xl text-xl bg-slate-100"
-      ></textarea>
-
-      <div class="flex justify-start w-full overflow-x-auto px-2 gap-x-3 h-auto" id="preview-slider">
-        <input type="file" multiple name="image" onchange="previewFile(this)" class="hidden" id="file-input" accept="image/*" />
-        <label for="file-input" class="min-w-[80px] h-[80px] bg-gray-300 rounded-xl text-6xl text-center text-gray-400 cursor-pointer hover:scale-95 active:scale-50 duration-200">&plus;</label>
-      </div>
-
-      <button class="absolute bottom-[100px] text-white right-6 w-auto block h-auto py-2 px-8 text-xl bg-cyan-500 hover:bg-cyan-600">
-        Post
-      </button>
   </div>
 
 <%- include('components/footer') -%>
