@@ -1,24 +1,68 @@
-<section class="w-full min-h-[400px] gap-2 grid grid-cols-[1fr_3fr] mb-2">
-    <div class="">
-        <img src="<%= photos[0].url %>" alt="" class="w-full h-full object-cover bg-gray-300 rounded-xs hover:border border-gray-400" loading="lazy">
-    </div>
-    <div class="grid grid-rows-[1fr_2fr] gap-2">
+<% if(photos.length == 6) { %>
+    <section class="w-full min-h-[400px] gap-2 grid grid-cols-[1fr_3fr] mb-2">
+        <div class="">
+            <img src="<%= photos[0]?.url %>" alt="" class="w-full h-full object-cover bg-gray-300 rounded-xs hover:border border-gray-400" loading="lazy" onClick="photoViewer(`<%= photos[0]?.url %>`)">
+        </div>
+        <div class="grid grid-rows-[1fr_2fr] gap-2">
+
+            <div class="grid grid-cols-[1fr_2fr] gap-2">
+                <img src="<%= photos[1]?.url %>" alt="" class="w-full h-full object-cover bg-gray-300 rounded-xs hover:border border-gray-400" loading="lazy" onClick="photoViewer(`<%= photos[1]?.url %>`)">
+                <img src="<%= photos[2]?.url %>" alt="" class="w-full h-full object-cover bg-gray-300 rounded-xs hover:border border-gray-400" loading="lazy" onClick="photoViewer(`<%= photos[2]?.url %>`)">
+            </div>
+
+            <div class="grid grid-cols-[2fr_1fr] gap-2">
+
+                <div class="grid grid-rows-2 gap-2">
+                    <img src="<%= photos[3]?.url %>" alt="" class="w-full h-full object-cover bg-gray-300 rounded-xs hover:border border-gray-400" loading="lazy" onClick="photoViewer(`<%= photos[3]?.url %>`)">
+                    <img src="<%= photos[4]?.url %>" alt="" class="w-full h-full object-cover bg-gray-300 rounded-xs hover:border border-gray-400" loading="lazy" onClick="photoViewer(`<%= photos[4]?.url %>`)">
+                </div>
+
+                <img src="<%= photos[5]?.url %>" alt="" class="w-full h-full object-cover bg-gray-300 rounded-xs hover:border border-gray-400" loading="lazy" onClick="photoViewer(`<%= photos[5]?.url %>`)">
+
+            </div>
+
+        </div>
+    </section>
+<% } else if(photos.length == 5) { %>
+    <div class="grid grid-rows-[1fr_2fr] gap-2 w-full min-h-[400px] mb-2">
 
         <div class="grid grid-cols-[1fr_2fr] gap-2">
-            <img src="<%= photos[1].url %>" alt="" class="w-full h-full object-cover bg-gray-300 rounded-xs hover:border border-gray-400" loading="lazy">
-            <img src="<%= photos[2].url %>" alt="" class="w-full h-full object-cover bg-gray-300 rounded-xs hover:border border-gray-400" loading="lazy">
+            <img src="<%= photos[0]?.url %>" alt="" class="w-full h-full object-cover bg-gray-300 rounded-xs hover:border border-gray-400" loading="lazy" onClick="photoViewer(`<%= photos[0]?.url %>`)">
+            <img src="<%= photos[1]?.url %>" alt="" class="w-full h-full object-cover bg-gray-300 rounded-xs hover:border border-gray-400" loading="lazy" onClick="photoViewer(`<%= photos[1]?.url %>`)">
         </div>
 
         <div class="grid grid-cols-[2fr_1fr] gap-2">
 
             <div class="grid grid-rows-2 gap-2">
-                <img src="<%= photos[3].url %>" alt="" class="w-full h-full object-cover bg-gray-300 rounded-xs hover:border border-gray-400" loading="lazy">
-                <img src="<%= photos[4].url %>" alt="" class="w-full h-full object-cover bg-gray-300 rounded-xs hover:border border-gray-400" loading="lazy">
+                <img src="<%= photos[2]?.url %>" alt="" class="w-full h-full object-cover bg-gray-300 rounded-xs hover:border border-gray-400" loading="lazy" onClick="photoViewer(`<%= photos[2]?.url %>`)">
+                <img src="<%= photos[3]?.url %>" alt="" class="w-full h-full object-cover bg-gray-300 rounded-xs hover:border border-gray-400" loading="lazy" onClick="photoViewer(`<%= photos[3]?.url %>`)">
             </div>
 
-            <img src="<%= photos[5].url %>" alt="" class="w-full h-full object-cover bg-gray-300 rounded-xs hover:border border-gray-400" loading="lazy">
+            <img src="<%= photos[4]?.url %>" alt="" class="w-full h-full object-cover bg-gray-300 rounded-xs hover:border border-gray-400" loading="lazy" onClick="photoViewer(`<%= photos[4]?.url %>`)">
 
         </div>
 
     </div>
-</section>
+<% } else if(photos.length == 4) { %>
+    <section class="grid grid-cols-2 grid-rows-2 gap-2 w-full min-h-[400px] mb-2">
+        <% photos.forEach((photo) => { %>
+            <img src="<%= photo?.url %>" alt="" class="w-full h-full object-cover bg-gray-300 rounded-xs hover:border border-gray-400" loading="lazy" onClick="photoViewer(`<%= photo?.url %>`)">
+        <% }) %>
+    </section>
+<% } else if(photos.length == 3) { %>
+    <section class="grid grid-cols-[2fr_1fr] gap-2 w-full min-h-[300px] mb-2">
+        <div class="grid grid-rows-2 gap-2">
+            <img src="<%= photos[0]?.url %>" alt="" class="w-full h-full object-cover bg-gray-300 rounded-xs hover:border border-gray-400" loading="lazy" onClick="photoViewer(`<%= photos[0]?.url %>`)">
+            <img src="<%= photos[1]?.url %>" alt="" class="w-full h-full object-cover bg-gray-300 rounded-xs hover:border border-gray-400" loading="lazy" onClick="photoViewer(`<%= photos[1]?.url %>`)">
+        </div>
+        <img src="<%= photos[2]?.url %>" alt="" class="w-full h-full object-cover bg-gray-300 rounded-xs hover:border border-gray-400" loading="lazy" onClick="photoViewer(`<%= photos[2]?.url %>`)">
+    </section>
+<% } else if(photos.length == 2) { %>
+    <section class="grid grid-cols-2 gap-2 w-full min-h-[400px] mb-2">
+        <% photos.forEach((photo) => { %>
+            <img src="<%= photo?.url %>" alt="" class="w-full h-full object-cover bg-gray-300 rounded-xs hover:border border-gray-400" loading="lazy" onClick="photoViewer(`<%= photo?.url %>`)">
+        <% }) %>
+    </section>
+<% } else if(photos.length == 1) { %>
+    <img src="<%= photos[0]?.url %>" alt="" class="w-full max-h-[200px] object-cover bg-gray-300 rounded-xs hover:border border-gray-400" loading="lazy" onClick="photoViewer(`<%= photos[0]?.url %>`)">
+<% } %>

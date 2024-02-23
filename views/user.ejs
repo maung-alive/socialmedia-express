@@ -25,13 +25,9 @@
       <%- include('components/post', {post: post}); %>
     <% }); %>
     <% } else { %>
-        <%- include('components/phototab', {photos: photos}) %>
-        <%- include('components/phototab', {photos: photos}) %>
-        <%- include('components/phototab', {photos: photos}) %>
-        <%- include('components/phototab', {photos: photos}) %>
-        <%- include('components/phototab', {photos: photos}) %>
-        <%- include('components/phototab', {photos: photos}) %>
-        <%- include('components/phototab', {photos: photos}) %>
+        <% while(photos.length > 0) { %>
+            <%- include('components/phototab', {photos: photos.splice(0, (Math.random() * 10 + 6)/2- 1)}) %>
+        <% } %>
     <% } %>
 </section>
 

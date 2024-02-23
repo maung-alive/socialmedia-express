@@ -23,7 +23,8 @@
         <% post.images.map(function(image) { %>
             <img
                 src="<%= image %>"
-                alt="Random"
+                alt=""
+                onclick="photoViewer(`<%= image.url %>`)"
                 class="bg-gray-900/50 w-auto mx-auto lg:max-w-xl md:max-w-md my-2 min-h-80 lg:min-h-96 h-full object-cover rounded-md hover:grayscale-[100] transition duration-100"
             >
         <% }) %>
