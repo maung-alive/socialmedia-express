@@ -36,7 +36,7 @@
 
   </div>
 
-  <div class="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] max-w-[96%] max-h-[60vh] bg-slate-100 shadow-xl rounded-xl overflow-hidden" id="post-form-div">
+  <div class="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] max-w-[96%] max-h-[60vh] bg-slate-100 shadow-xl rounded-xl overflow-hidden border-b border-cyan-500" id="post-form-div">
     <textarea
       name="post-content"
       id="post-comment"
@@ -48,6 +48,10 @@
         <input type="file" multiple name="image" onchange="previewFile(this)" class="hidden" id="file-input" accept="image/*" />
         <label for="file-input" class="min-w-[80px] h-[80px] bg-gray-300 rounded-xl text-6xl text-center text-gray-400 cursor-pointer hover:scale-95 active:scale-50 duration-200">&plus;</label>
       </div>
+
+      <button class="absolute bottom-[100px] text-white right-6 w-auto block h-auto py-2 px-8 text-xl bg-cyan-500 hover:bg-cyan-600">
+        Post
+      </button>
   </div>
 
 <%- include('components/footer') -%>
