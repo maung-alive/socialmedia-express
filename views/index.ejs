@@ -16,4 +16,38 @@
     <% }); %>
   </section>
 
+  <div class="hidden fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[800px] max-w-[96%] max-h-[60vh] bg-slate-100 shadow-xl rounded-xl" id="comment-form-div">
+            
+    <span class="fixed top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 text-4xl rounded-full duration-200 hover:ring-1 ring-red-500 z-[100]" onClick="destroyCommenter()">&times;</span>
+
+    <form id="comment-form" class="my-4 w-full relative px-2">
+    <textarea
+        type="text"
+        name="comment"
+        id="comment"
+        placeholder="Write a comment.."
+        class="w-full py-3 pl-2 pr-6 rounded-md bg-white "
+    >${id}</textarea>
+
+    <span class="absolute top-1/2 right-4 -translate-y-1/2 bg-cyan-700 hover:bg-cyan-800 hover:shadow-lg cursor-pointer text-white px-3 py-2 rounded-full">
+        S
+    </span>
+    </form>
+
+  </div>
+
+  <div class="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] max-w-[96%] max-h-[60vh] bg-slate-100 shadow-xl rounded-xl" id="post-form-div">
+    <textarea
+      name="post-content"
+      id="post-comment"
+      placeholder="What's on your mind?"
+      class="w-full min-h-[calc(100%-90px)] px-2 py-1 placeholder:text-2xl text-xl bg-slate-100"
+      ></textarea>
+
+      <div class="flex justify-start w-full overflow-x-auto px-2 gap-x-3 h-auto" id="preview-slider">
+        <input type="file" multiple name="image" onchange="previewFile(this)" class="hidden" id="file-input" accept="image/*" />
+        <label for="file-input" class="min-w-[80px] h-[80px] bg-gray-300 rounded-xl text-6xl text-center text-gray-400 cursor-pointer hover:scale-95 active:scale-50 duration-200">&plus;</label>
+      </div>
+  </div>
+
 <%- include('components/footer') -%>

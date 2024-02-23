@@ -12,4 +12,9 @@
 <body class="flex bg-slate-100">
   <%- include('./navbar') -%>
 
+  <div class="hidden fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] md:h-[96vh] max-w-[100vw] h-[100vh] bg-black/20 z-50 rounded-md overflow-hidden" id="photo-viewer">
+    <span class="fixed top-0 left-0 translate-x-4 md:-translate-x-1/2 md:-translate-y-1/2 text-4xl cursor-pointer z-[100]" onClick="removePhotoViewer()">&times;</span>
+    <img id="photo-viewer-img" src="" alt="" class="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full object-contain">
+  </div>
+
   <div class="px-5 pt-[53px] pb-4 md:pt-0 md:pr-[50px] lg:pr-[100px] xl:pr-[150px] md:pl-[250px] lg:pl-[450px] xl:pl-[550px] w-full mx-auto">
