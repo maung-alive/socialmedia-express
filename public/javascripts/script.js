@@ -7,7 +7,7 @@ const previewImageDIV = (filename) =>  `
             class="min-w-[80px] h-[80px] bg-gray-300 object-cover rounded-xl text-6xl text-center text-gray-400 cursor-pointer hover:scale-95 active:scale-95 duration-200"
         />
         <div class="cursor-pointer absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 border-2 border-red-600 px-2 rounded-full">
-            <span class="text-red-600 font-bold text-2xl" onclick="destroyByID('${filename}')">&times;</span>
+            <span class="text-red-600 font-bold text-2xl" onclick="removeImage('${filename}');destroyByID('${filename}')">&times;</span>
         </div>
     </div>
 `
@@ -30,12 +30,22 @@ const postCreatorDIV = `
             <button class="text-white w-auto block h-auto py-2 px-8 text-xl bg-red-500 hover:bg-red-600" onclick="destroyByID('post-creator-div')">
                 Close
             </button>
-            <button class="text-white w-auto block h-auto py-2 px-8 text-xl bg-cyan-500 hover:bg-cyan-600">
+            <button onclick="uploadPost()" class="text-white w-auto block h-auto py-2 px-8 text-xl bg-cyan-500 hover:bg-cyan-600">
                 Post
             </button>
         </div>
     </div>
 `
+
+var postImages = [];
+
+function remove(list, item) {
+    return list.filter(i => i != item) 
+}
+
+function removeImage(name) {
+    postImages = remove(postImages, name)
+}
 
 function appendToBody(element) {
     let htmlBody = document.querySelector("body");
@@ -84,7 +94,6 @@ function destroyCommenter() {
     form.reset();
 }
 
-
 function previewFile(input) {   // image previewer
     let previewSlider = document.querySelector("#preview-slider");  // get parent div
     let files = input.files;    // get input data
@@ -92,6 +101,8 @@ function previewFile(input) {   // image previewer
 
     while(files.length > 0){    // do this untill there are no files left
         let file = files[i];    // get i^th item from files
+        
+        postImages.push(file.name);     // push file name to a list to get files later
         let reader  = new FileReader();
 
         var element = previewImageDIV(file.name)
@@ -115,4 +126,14 @@ function postCreator() {
     }
 
     appendToBody(postCreatorDIV)
+}
+
+function uploadPost() {
+    let content = document.querySelector("[name=\"post-content\"]").value;
+    let images = [];
+    postImages.map((i) => {
+        let img = document.getElementById(`${i}-img`).getAttribute('src');
+        images.push(img);
+    })
+    alert(postImages)
 }
